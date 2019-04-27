@@ -1,0 +1,100 @@
+body {
+    background-color: #dddddd;
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+
+#name-head {
+    background-color: #4aaaa5;
+    color: #ffffff;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+
+h1 {
+    font-family: 'Georgia', Times, Times New Roman, serif;
+}
+
+#normal-line {
+    border: none;
+    margin: 0;
+    height: 20px;
+    background-color: #cccccc;
+    width: 100%;
+}
+
+#flex-img{
+    height: 150px;
+    width: 200px;
+}
+
+ img {
+     width: 100%;
+     height: auto;
+ }
+
+th{
+    padding: 5px;
+    padding-bottom: 30px;
+}
+#about-me{
+    font-size: 2em;
+    font-weight: bold;
+    color:#4aaaa5;
+}
+.bio {
+    font-size:25px;
+    line-height: 2em;
+    color: #777777;
+}
+#green-line{
+    height: 5px;
+    color: #4aaaa5;
+    background-color: #4aaaa5;
+    border: none;
+    margin: 0;
+}
+
+#footsies {
+    background-color: #666666;
+    color: #dddddd;
+    text-align: center;
+    border-top: 50px;
+    padding: 40px;
+    margin: #666666;
+    padding: #666666;
+    border: #666666;
+}
+#subutton{
+    padding: 15px 30px;
+    margin: 30px;
+    background-color: #4aaaa5;
+    text-decoration: none;
+    font-size: 19px;
+    color: #ffffff;
+}
+.flex-container{
+    display: flex;
+    padding: 15px 30px;
+}
+.flex-component{
+    position: relative;
+    padding: 7px;
+}
+
+#flex-img{
+    height: 150px;
+    width: 200px;
+}
+
+#img-label{
+    position: absolute;
+    bottom: 15px;
+    background-color: #4aaaa5;
+    color: #ffffff;
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+    font-family: 'Georgia', Times, Times New Roman, serif;
+}
