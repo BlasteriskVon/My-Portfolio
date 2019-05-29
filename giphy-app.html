@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>GifTastic</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    </head>
+    <style>
+        body {
+            background-image: url("assets/images/searchImage.png");
+            background-repeat: repeat;
+        }
+        h1 {
+            background-color: white;
+            padding: 0;
+            margin: 0;
+            border: 0;
+        }
+    </style>
+    <body>
+        <div class="container">
+            <div class="row topicsRow">
+                <div class="col-md-12 topicsColumn"></div>
+            </div>
+            <br/>
+            <div class="row imagesRow">
+                <div class="col-md-8 imagesColumn row"></div>
+                <div class="col-md-4">
+                    <div class="card card-default">
+                        <div class="card-header">
+                            <h1>Add an Image Topic!</h1>
+                        </div>
+                        <div class="card-body">
+                            <form role="role">
+                                <div class="form-group">
+                                    <input class="form-control" id="topicInput" type="text">
+                                </div>
+                                <button class="btn btn-default" id="addTopic" type="submit">Submit the Topic!</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script type="text/javascript">
+        var topics; //this is the array of topics that will update the images
+        if(JSON.parse(localStorage.getItem("searchTopics")) != null){
+            topics = JSON.parse(localStorage.getItem("searchTopics"));
+        } else {
+            topics = ["dragons", "dogs", "tacos", "thanos", "deer", "bears"];
+        }
+        var randomImageIndex = [];
+        function addButton(x){
+            var stringX = String(x); //converts x to a string to avoid potential issues
+            var newButton = $("<button>", {"class": "topicButton"}); //creates a new button of classes btn and topicButton
+            newButton.text(stringX); //makes the text of the button x
+            newButton.attr("data-topic", stringX); //applies a new attribute called data-topic which will be referenced later
+            $(".topicsColumn").append(newButton); //appends the button
+        }
+
+        function updateButtons(){
+            for(var i = 0;i < topics.length;i++){
+                addButton(topics[i]);
+            }
+        }
+
+        function stringToAjax(x){
+            randomImageIndex = [];
+            var search = x;
+            var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=UXUhR58v2nmQC6jMGg5vr7GbLMDZclbm&q=" + search + "&limit=25&offset=0&lang=en";
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).then(function(response) {
+                //rating accessed with response.data[index].rating
+                //image (the one I wanna use) access with response.data[index].images.original.url
+                for(var i = 0;i < 10;i++){
+                    var randomIndex = Math.floor(Math.random() * 25);
+                    if(randomImageIndex.includes(randomIndex)){
+                        i--;
+                    } else {
+                        randomImageIndex.push(randomIndex);
+                        var newAddition = $("<div>", {"class":"col-md-4"});
+                        $(".imagesColumn").append(newAddition);
+                        var newLabel = $("<h1>");
+                        newAddition.append(newLabel);
+                        newLabel.css("width", "100%");
+                        newLabel.text("Rating: " + response.data[randomIndex].rating);
+                        var newImage = $("<img>", {"class":"gif"});
+                        newImage.css({"width":"100%", "height":"auto"});
+                        newImage.attr("src", response.data[randomIndex].images.original_still.url);
+                        newImage.attr("data-animate", response.data[randomIndex].images.original.url);
+                        newImage.attr("data-still", response.data[randomIndex].images.original_still.url);
+                        newImage.attr("data-state","still");
+                        newAddition.append(newImage);       
+                        newImage.on("click", function(e){
+                            var clickedImage = $(e.target);
+                            var imageState = clickedImage.attr("data-state");
+                            if(imageState === "still"){
+                                $(e.target).attr("src", $(e.target).attr("data-animate"));
+                                $(e.target).attr("data-state", "animate");
+                            } else { 
+                                $(e.target).attr("data-state", "still");
+                                $(e.target).attr("src", $(e.target).attr("data-still"));
+                            }
+                        });              
+                    }
+                }
+            })
+        }
+
+        $("#addTopic").on("click",function(event) {
+            event.preventDefault();
+            if($("#topicInput").val() != ""){
+                var newTopic = $("#topicInput").val(); //takes the text in the input box
+                addButton(newTopic); //adds it as a button
+                topics.push(newTopic);
+                localStorage.setItem("searchTopics", JSON.stringify(topics));
+                $("#topicInput").val(""); //erases the text in the text box
+            }
+        });
+
+        $(document).on("click", ".topicButton", function(e){
+            $(".imagesColumn").empty(); //clears images that may already be in the imagesColumn
+            var key = $(e.target); //makes a jQuery object with the information of the clicked button
+            var searchTopic = key.attr("data-topic"); //takes the data-topic attribute value
+            stringToAjax(searchTopic);
+        })
+        updateButtons();
+    </script>
+</html>
