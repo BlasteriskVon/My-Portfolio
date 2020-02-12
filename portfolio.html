@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Portfolio</title>
+        <title>Projects</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -11,18 +11,17 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <a class="navbar-brand" href="#">Andrew Vaughns</a>
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">About</a></li>
-                    <li class="nav-item active"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="portfolioPlus.html">Portfolio+</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Welcome</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="portfolio.html">Projects</a></li>
                     <li class="nav-item"><a class="nav-link" href="https://github.com/BlasteriskVon">Github</a></li>
                     <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/andrew-vaughns-73663a133">LinkedIn</a></li>
                     <li class="nav-item"><a class="nav-link" href="Andrew_Vaughns_Resume.pdf">Resume</a></li>
                 </ul>
         </nav>
+        <div id="canvasDiv"><canvas></canvas></div>
         <div class="container">
             <div class="row" style="background-color: #ffffff"> <!--first row for header-->
-                <div class="col-md-4" style="background-color:#4aaaa5"><h1 id="name-head">Andrew Vaughns</h1></div>
+                <div class="col-md-4" style="background-color:#BF343F"><h1 id="name-head">Andrew Vaughns</h1></div>
             </div>
             <div class="row"> <!--second row for line-->
                 <div class="col-md-12">
@@ -33,42 +32,28 @@
             <div class="row" style="background-color: #ffffff; margin-bottom: 5em"> <!--row to make the about section white-->
                 <div class="col-md-12">
                     <div class="row" style="border-bottom: 1px solid gray"> <!--third row for "About Me"-->
-                        <div class="col-md-12"><h1 id="about-me">Portfolio</h1><br/></div>
+                        <div class="col-md-12"><h1 id="about-me">Projects</h1><br/></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="flex-component">
                                 <img id="flex-img" src="images/hangman.jpg"/>
                                 <a href="https://blasteriskvon.github.io/Word-Guess-Game/" alt="Link to Hangman App"><div id="img-label">Hangman</div></a>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="flex-component">
-                                <img id="flex-img" src="images/rpg.jpg"/>
-                                <a href="https://blasteriskvon.github.io/unit-4-game/" alt="Link to Pokemon App"><div id="img-label">RPG Game</div></a>
+                                <img id="flex-img" src="https://blasteriskvon.github.io/unit-4-game/assets/images/mewtwo.png"/>
+                                <a href="https://blasteriskvon.github.io/unit-4-game/" alt="Link to Pokemon App"><div id="img-label">Pokemon RPG</div></a>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="flex-component">
                                 <img id="flex-img" src="images/trivia.jpg"/>
                                 <a href="https://blasteriskvon.github.io/TriviaGame/" alt="Link to Trivia App"><div id="img-label">Trivia Game</div></a>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="flex-component">
-                                <img id="flex-img" src="images/rutgers.jpg"/>
-                                <a href="https://github.com/BlasteriskVon/Liri" alt="Link to Liri App"><div id="img-label">Liri (only the Github portfolio)</div></a>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="flex-component">
-                                <img id="flex-img" src="images/rps.png"/>
-                                <div id="img-label">Rock Paper Scissors Game</div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="flex-component">
                                 <img id="flex-img" src="assets/images/searchImage.gif"/>
                                 <a href="giphy-app.html" alt="Link to Giphy App"><div id="img-label">Giphy App</div></a>
@@ -76,27 +61,55 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4">
-                            <div class="flex-component">
-                                <img id="flex-img" src="images/sharkNo.PNG"/>
-                                <a href="https://sharkno.herokuapp.com/" alt="Link to SharkNo App"><div id="img-label">Project: SharkNo App</div></a>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="flex-component">
                                 <img id="flex-img" src="images/liquorPiquor.PNG"/>
                                 <a href="https://blasteriskvon.github.io/Project-1-Beyond-the-Universe/" alt="Link to Liquor Piquor App"><div id="img-label">Project: Liquor Piquor App</div></a>
                             </div>
                         </div>
-
+                        <div class="col-md-3">
+                            <div class="flex-component">
+                                <img id="flex-img" src="images/sharkNo.PNG"/>
+                                <a href="https://sharkno.herokuapp.com/" alt="Link to SharkNo App"><div id="img-label">Project: SharkNo App</div></a>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="flex-component">
+                                <img id="flex-img" src="images/mine.gif"/>
+                                <a href="https://blasteriskvon.github.io/Minesweeper/" alt="Link to Minesweeper Game"><div id="img-label">Minesweeper</div></a>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="flex-component">
+                                <img id="flex-img" src="images/pacman.PNG"/>
+                                <a href="https://blasteriskvon.github.io/JavaScriptPacman/" alt="Link to Pacman Game"><div id="img-label">Javascript-Designed Pacman</div></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="flex-component">
+                                <img id="flex-img" src="images/cyndaquil.gif"/>
+                                <a href="https://blasteriskvon.github.io/CyndaquilGame/" alt="Link to Cyndaquil Game"><div id="img-label">Cyndaquil's Sweet Escapade</div></a>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="flex-component">
+                                <img id="flex-img" src="https://benny-calculator.herokuapp.com/assets/images/benny.png"/>
+                                <a href="https://benny-calculator.herokuapp.com/" alt="Link to Benny Calculator"><div id="img-label">MyCalculator</div></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="row" id="footsies" style="border-top: 5px solid #4aaaa5">
-                <div class="col-md-12">
-                    <div>Copyright &copy;</div>
-                </div>
+        </div>
+        <div class="row" id="footsies" style="border-top: 5px solid #BF343F">
+            <div class="col-md-12">
+                <div class="text-center">If you wish to contact me:<br/>
+                    Email: andrew.vaughns1994@gmail.com<br/>
+                    Phone: (980)253-9263</div>
             </div>
         </div>
     </body>
+    <script type="text/Javascript" src="canvas.js"></script>
 </html>

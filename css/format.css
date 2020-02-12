@@ -1,14 +1,28 @@
 body {
     background-color: #dddddd;
     font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    min-height: 100vh;
+    position: relative;
+    margin: 0;
+    overflow-y:scroll;
 }
 
 
 #name-head {
-    background-color: #4aaaa5;
+    background-color: #BF343F;
     color: #ffffff;
     font-size: 2em;
     font-weight: bold;
+}
+
+#canvasDiv {
+    z-index: -1;
+    position: fixed;
+}
+
+.container {
+    z-index: 1;
+    position: relative;
 }
 
 
@@ -41,7 +55,7 @@ th{
 #about-me{
     font-size: 2em;
     font-weight: bold;
-    color:#4aaaa5;
+    color:#BF343F;
 }
 .bio {
     font-size:25px;
@@ -69,7 +83,7 @@ th{
 #subutton{
     padding: 15px 30px;
     margin: 30px;
-    background-color: #4aaaa5;
+    background-color: #BF343F;
     text-decoration: none;
     font-size: 19px;
     color: #ffffff;
@@ -91,10 +105,16 @@ th{
 #img-label{
     position: absolute;
     bottom: 15px;
-    background-color: #4aaaa5;
+    background-color: #BF343F;
     color: #ffffff;
     padding: 15px;
     width: 200px;
     text-align: center;
     font-family: 'Georgia', Times, Times New Roman, serif;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }

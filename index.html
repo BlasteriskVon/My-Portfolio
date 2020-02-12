@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>About Me</title>
+        <title>Welcome</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -11,19 +11,17 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <a class="navbar-brand" href="#">Andrew Vaughns</a>
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active"><a class="nav-link" href="index.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="portfolioPlus.html">Portfolio+</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="index.html">Welcome</a></li>
+                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Projects</a></li>
                     <li class="nav-item"><a class="nav-link" href="https://github.com/BlasteriskVon">Github</a></li>
                     <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/andrew-vaughns-73663a133">LinkedIn</a></li>
-                    <li class="nav-item"><a class="nav-link" href="Andrew_Vaughns_Resume.pdf">Resume</a></li>
-                    
+                    <li class="nav-item"><a class="nav-link" href="Andrew_Vaughns_Resume.pdf">Resume</a></li> 
                 </ul>
         </nav>
+        <div id="canvasDiv"><canvas></canvas></div>
         <div class="container">
             <div class="row" style="background-color: #ffffff"> <!--first row for header-->
-                <div class="col-md-4" style="background-color:#4aaaa5"><h1 id="name-head">Andrew Vaughns</h1></div>
+                <div class="col-md-4" style="background-color:#BF343F"><h1 id="name-head">Andrew Vaughns</h1></div>
             </div>
             <div class="row"> <!--second row for line-->
                 <div class="col-md-12">
@@ -34,38 +32,64 @@
             <div class="row" style="background-color: #ffffff; margin-bottom: 5em"> <!--row to make the about section white-->
                 <div class="col-md-12">
                         <div class="row" style="border-bottom: 1px solid gray"> <!--third row for "About Me"-->
-                            <div class="col-md-12"><h1 id="about-me">About Me</h1><br/></div>
+                            <div class="col-md-12"><h1 id="about-me">Welcome</h1><br/></div>
                         </div>
-                        <div class="row" style="padding-top: 2em"> <!--fourth row for picture and text-->
-                            <div class="col-md-3">
-                                <img id="mypic" src="images\me.jpg">
-                            </div>
-                            <div class="col-md-9">
-                                <p class="bio one">My name is Andrew Vaughns. I am currently a student 
-                                    in the UNC Coding Bootcamp. I did not initially plan on working in web development but after taking a few courses I
-                                    have found myself interested in this field. My favorite languages so far from the course are HTML, in conjunction with CSS and 
-                                    Javascript. My overall favorite language is likely Visual Basic for Applications in Excel due to the fun macros that can be created. (And, if 
-                                    my workplace involves using Excel, can be a fun way to practice while remaining productive!)
-                                </p>
-                            </div>
+                        <div class="row" > <!--fourth row for picture and text-->
+                            <div class="col-md-11" id="blankSpace"></div>
+                            <div class="col-md-1"><p id="skip"></p></div>
                         </div>
-                        <div class="row"> <!--fifth row for remaining text-->
+                        <div class="row">
                             <div class="col-md-12">
-                                <p class="bio two">
-                                    I am a graduate of the University of North Carolina at Chapel Hill, with a major in mathematics. While I do love math, I also grew a fondness for
-                                    computer science that I was unable to pursue prior to graduating. My goals for this course include becoming more familiar with the processes surrounding
-                                    the applications and softwares I use daily.
-                                </p>
+                                <p id="welcome" style="font-size: 3em"></p>
                             </div>
                         </div>
+                       
                 </div>
             </div>
-            <div class="row" id="footsies" style="border-top: 5px solid #4aaaa5">
-                <div class="col-md-12">
-                    <div>Copyright &copy;</div>
-                </div>
-            </div>
+            
         </div>
+        <footer>
+            <div class="row" id="footsies" style="border-top: 5px solid #BF343F">
+                <div class="col-md-12">
+                    <div class="text-center">If you wish to contact me:<br/>
+                        Email: andrew.vaughns1994@gmail.com<br/>
+                        Phone: (980)253-9263</div>
+                </div>
+        </div>
+        </footer>
     </body>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/Javascript" src="canvas.js"></script>
+    <script type="text/javascript">
+        var welcomeString = "Welcome to my portfolio! Please click one of the above links to navigate to my completed projects, visit my social media, or contact me directly!";
+        var welcomeStringArray = welcomeString.split("");
+        var welcomeInterval;
+        function skip() {
+            $("#skip").text("");
+            clearInterval(welcomeInterval);
+            $("#welcome").text(welcomeString);
+            $("#skip").off("click", skip);
+        }
+        function setSkip() {
+            $("#skip").text("Skip");
+            $("#skip").on("click", skip);
+        }
+        function welcomeStart() {
+            setSkip();
+            var welcomeArrayIndex = 0;
+            var stop = welcomeStringArray.length;
+            welcomeInterval = setInterval(function() {
+                if(welcomeArrayIndex < stop){
+                    $("#welcome").text($("#welcome").text() + welcomeStringArray[welcomeArrayIndex]);
+                    welcomeArrayIndex++;
+                } else {
+                    clearInterval(welcomeInterval);
+                    $("#skip").text("");
+                    $("#skip").off("click", skip);
+                }
+            }, 100);
+        }
+        welcomeStart();
+    </script>
 
 </html>
