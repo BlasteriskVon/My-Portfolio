@@ -1,4 +1,5 @@
 var canvas = document.querySelector("canvas"); //querySelector searches html document for a canvas element
+var container = document.querySelector(".container");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 var c = canvas.getContext("2d"); //within c, creating a super object, methods and functions to draw within the canvas in a 2d space
