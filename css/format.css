@@ -97,12 +97,12 @@ th{
     padding: 7px;
 }
 
-#flex-img{
+.flex-img{
     height: 150px;
     width: 200px;
 }
 
-#img-label{
+.img-label{
     position: absolute;
     bottom: 15px;
     background-color: #BF343F;

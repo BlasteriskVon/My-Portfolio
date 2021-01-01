@@ -6,6 +6,9 @@
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/format.css">
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -30,81 +33,9 @@
                 </div>
             </div>
             <div class="row" style="background-color: #ffffff; margin-bottom: 5em"> <!--row to make the about section white-->
-                <div class="col-md-12">
+                <div class="col-md-12" id="sites">
                     <div class="row" style="border-bottom: 1px solid gray"> <!--third row for "About Me"-->
                         <div class="col-md-12"><h1 id="about-me">Projects</h1><br/></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="flex-component">
-                                <img id="flex-img" src="images/hangman.jpg"/>
-                                <a href="https://blasteriskvon.github.io/Word-Guess-Game/" alt="Link to Hangman App"><div id="img-label">Hangman</div></a>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="flex-component">
-                                <img id="flex-img" src="https://blasteriskvon.github.io/unit-4-game/assets/images/mewtwo.png"/>
-                                <a href="https://blasteriskvon.github.io/unit-4-game/" alt="Link to Pokemon App"><div id="img-label">Pokemon RPG</div></a>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="flex-component">
-                                <img id="flex-img" src="images/trivia.jpg"/>
-                                <a href="https://blasteriskvon.github.io/TriviaGame/" alt="Link to Trivia App"><div id="img-label">Trivia Game</div></a>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="flex-component">
-                                <img id="flex-img" src="assets/images/searchImage.gif"/>
-                                <a href="giphy-app.html" alt="Link to Giphy App"><div id="img-label">Giphy App</div></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="flex-component">
-                                <img id="flex-img" src="images/liquorPiquor.PNG"/>
-                                <a href="https://blasteriskvon.github.io/Project-1-Beyond-the-Universe/" alt="Link to Liquor Piquor App"><div id="img-label">Project: Liquor Piquor App</div></a>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="flex-component">
-                                <img id="flex-img" src="images/sharkNo.PNG"/>
-                                <a href="https://sharkno.herokuapp.com/" alt="Link to SharkNo App"><div id="img-label">Project: SharkNo App</div></a>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="flex-component">
-                                <img id="flex-img" src="images/mine.gif"/>
-                                <a href="https://blasteriskvon.github.io/Minesweeper/" alt="Link to Minesweeper Game"><div id="img-label">Minesweeper</div></a>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="flex-component">
-                                <img id="flex-img" src="images/pacman.PNG"/>
-                                <a href="https://blasteriskvon.github.io/JavaScriptPacman/" alt="Link to Pacman Game"><div id="img-label">Javascript-Designed Pacman</div></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="flex-component">
-                                <img id="flex-img" src="images/cyndaquil.gif"/>
-                                <a href="https://blasteriskvon.github.io/CyndaquilGame/" alt="Link to Cyndaquil Game"><div id="img-label">Cyndaquil's Sweet Escapade</div></a>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="flex-component">
-                                <img id="flex-img" src="https://benny-calculator.herokuapp.com/assets/images/benny.png"/>
-                                <a href="https://benny-calculator.herokuapp.com/" alt="Link to Benny Calculator"><div id="img-label">MyCalculator</div></a>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="flex-component">
-                                <img id="flex-img" src="images/pichu front potential angry smile.png"/>
-                                <a href="https://blasteriskvon.github.io/PichuAdventure/" alt="Link to Pichu's Adventure"><div id="img-label">Pichu's Adventure</div></a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -127,4 +58,39 @@
         </footer>
     </body>
     <script type="text/Javascript" src="canvas.js"></script>
+    <script type="text/javascript">
+        var sites = [];
+        function Site(link, pic, alt, label){
+            this.link = link;
+            this.pic = pic;
+            this.alt = alt;
+            this.label = label;
+            sites.push(this);
+        }
+        var pichu = new Site("https://blasteriskvon.github.io/PichuAdventure/", "images/pichu front potential angry smile.png", "Link to Pichu's Adventure", "Pichu's Adventure");
+        var benny = new Site("https://benny-calculator.herokuapp.com/", "https://benny-calculator.herokuapp.com/assets/images/benny.png", "Link to Benny Calculator", "MyCalculator");
+        var sharkNo = new Site("https://sharkno.herokuapp.com/", "images/sharkNo.PNG", "Link to SharkNo App", "SharkNo App");
+        var liquorPiquor = new Site("https://blasteriskvon.github.io/Project-1-Beyond-the-Universe/", "images/liquorPiquor.PNG", "Link to Liquor Piquor App", "Liquor Piquor App");
+        var cyndaquil = new Site("https://blasteriskvon.github.io/CyndaquilGame/", "images/cyndaquil.gif", "Link to Cyndaquil Game", "Cyndaquil's Sweet Escapade");
+        var pacman = new Site("https://blasteriskvon.github.io/JavaScriptPacman/", "images/pacman.PNG", "Link to Pacman Game", "Javascript-Designed Pacman");
+        var minesweeper = new Site("https://blasteriskvon.github.io/Minesweeper/", "images/mine.gif", "Link to Minesweeper Game", "Minesweeper");
+        var giphyApp = new Site("https://blasteriskvon.github.io/Giphy-App/", "assets/images/searchImage.gif", "Link to Giphy App", "Giphy App");
+        var triviaGame = new Site("https://blasteriskvon.github.io/TriviaGame/", "images/trivia.jpg", "Link to Trivia App", "Trivia Game");
+        var pokemonRPG = new Site("https://blasteriskvon.github.io/unit-4-game/", "https://blasteriskvon.github.io/unit-4-game/assets/images/mewtwo.png", "Link to Pokemon App", "Pokemon RPG");
+        var hangman = new Site("https://blasteriskvon.github.io/Word-Guess-Game/", "images/hangman.jpg", "Link to Hangman App", "Hangman");
+        var siteRow = $(`<div class="row" id="siterow"></div>`)
+        $("#sites").append(siteRow);
+        for(var i = 0;i < sites.length;i++){
+            var newSite = $(`
+            <div class="col-md-3">
+                <div class="flex-component">
+                    <img class="flex-img" src="${sites[i].pic}"/>
+                    <a href="${sites[i].link}" alt="${sites[i].alt}"><div class="img-label">${sites[i].label}</div></a>
+                </div>
+            </div>
+            `)
+            $("#siterow").append(newSite);
+        }
+
+    </script>
 </html>
