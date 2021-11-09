@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Projects</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/format.css">
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">Andrew Vaughns</a>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Welcome</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="portfolio.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://github.com/BlasteriskVon">Github</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/andrew-vaughns-73663a133">LinkedIn</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Andrew_Vaughns_Resume.pdf">Resume</a></li>
+                </ul>
+        </nav>
+        <div id="canvasDiv"><canvas></canvas></div>
+        <div class="container">
+            <div class="row" style="background-color: #ffffff"> <!--first row for header-->
+                <div class="col-md-4" style="background-color:#BF343F"><h1 id="name-head">Andrew Vaughns</h1></div>
+            </div>
+            <div class="row"> <!--second row for line-->
+                <div class="col-md-12">
+                    <hr id="normal-line"/>
+                    <br/>
+                </div>
+            </div>
+            <div class="row" style="background-color: #ffffff; margin-bottom: 5em"> <!--row to make the about section white-->
+                <div class="col-md-12" id="sites">
+                    <div class="row" style="border-bottom: 1px solid gray"> <!--third row for "About Me"-->
+                        <div class="col-md-12"><h1 id="about-me">Projects</h1><br/></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer style="position: relative; z-index: 1;">
+            <!-- <div class="row" id="footsies" style="border-top: 5px solid #BF343F">
+                <div class="col-md-12">
+                    <div class="text-center">
+                        If you wish to contact me:<br/>
+                        Email: andrew.vaughns1994@gmail.com<br/>
+                        Phone: (980)253-9263
+                    </div>
+                </div>
+            </div> -->
+            <div class="text-center" id="footsies" style="border-top: 5px solid #BF343F">
+                If you wish to contact me:<br/>
+                Email: andrew.vaughns1994@gmail.com<br/>
+                Phone: (980)253-9263
+            </div>
+        </footer>
+    </body>
+    <script type="text/Javascript" src="canvas.js"></script>
+    <script type="text/javascript">
+        var sites = [];
+        function Site(link, pic, alt, label){
+            this.link = link;
+            this.pic = pic;
+            this.alt = alt;
+            this.label = label;
+            sites.push(this);
+        }
+        var messengerApp = new Site("https://thawing-scrubland-09930.herokuapp.com/", "images/messengerApp.png", "Link to MessengerApp", "MessengerApp")
+        var pichu = new Site("https://blasteriskvon.github.io/PichuAdventure/", "images/pichu front potential angry smile.png", "Link to Pichu's Adventure", "Pichu's Adventure");
+        var benny = new Site("https://benny-calculator.herokuapp.com/", "https://benny-calculator.herokuapp.com/assets/images/benny.png", "Link to Benny Calculator", "MyCalculator");
+        var sharkNo = new Site("https://sharkno.herokuapp.com/", "images/sharkNo.PNG", "Link to SharkNo App", "SharkNo App");
+        var liquorPiquor = new Site("https://blasteriskvon.github.io/Project-1-Beyond-the-Universe/", "images/liquorPiquor.PNG", "Link to Liquor Piquor App", "Liquor Piquor App");
+        var cyndaquil = new Site("https://blasteriskvon.github.io/CyndaquilGame/", "images/cyndaquil.gif", "Link to Cyndaquil Game", "Cyndaquil's Sweet Escapade");
+        var pacman = new Site("https://blasteriskvon.github.io/JavaScriptPacman/", "images/pacman.PNG", "Link to Pacman Game", "Javascript-Designed Pacman");
+        var minesweeper = new Site("https://blasteriskvon.github.io/Minesweeper/", "images/mine.gif", "Link to Minesweeper Game", "Minesweeper");
+        var giphyApp = new Site("https://blasteriskvon.github.io/Giphy-App/", "assets/images/searchImage.gif", "Link to Giphy App", "Giphy App");
+        var triviaGame = new Site("https://blasteriskvon.github.io/TriviaGame/", "images/trivia.jpg", "Link to Trivia App", "Trivia Game");
+        var pokemonRPG = new Site("https://blasteriskvon.github.io/unit-4-game/", "https://blasteriskvon.github.io/unit-4-game/assets/images/mewtwo.png", "Link to Pokemon App", "Pokemon RPG");
+        var hangman = new Site("https://blasteriskvon.github.io/Word-Guess-Game/", "images/hangman.jpg", "Link to Hangman App", "Hangman");
+        var siteRow = $(`<div class="row" id="siterow"></div>`)
+        $("#sites").append(siteRow);
+        for(var i = 0;i < sites.length;i++){
+            var newSite = $(`
+            <div class="col-md-3">
+                <div class="flex-component">
+                    <img class="flex-img" src="${sites[i].pic}"/>
+                    <a href="${sites[i].link}" alt="${sites[i].alt}"><div class="img-label">${sites[i].label}</div></a>
+                </div>
+            </div>
+            `)
+            $("#siterow").append(newSite);
+        }
+
+    </script>
+</html>

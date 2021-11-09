@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/format.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">Andrew Vaughns</a>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"><a class="nav-link" href="index.html">Welcome</a></li>
+                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://github.com/BlasteriskVon">Github</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/andrew-vaughns-73663a133">LinkedIn</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Andrew_Vaughns_Resume.pdf">Resume</a></li> 
+                </ul>
+        </nav>
+        <div id="canvasDiv"><canvas></canvas></div>
+        <div class="container">
+            <div class="row" style="background-color: #ffffff"> <!--first row for header-->
+                <div class="col-md-4" style="background-color:#BF343F"><h1 id="name-head">Andrew Vaughns</h1></div>
+            </div>
+            <div class="row"> <!--second row for line-->
+                <div class="col-md-12">
+                    <hr id="normal-line"/>
+                    <br/>
+                </div>
+            </div>
+            <div class="row" style="background-color: #ffffff; margin-bottom: 5em"> <!--row to make the about section white-->
+                <div class="col-md-12">
+                        <div class="row" style="border-bottom: 1px solid gray"> <!--third row for "About Me"-->
+                            <div class="col-md-12"><h1 id="about-me">Welcome</h1><br/></div>
+                        </div>
+                        <div class="row" > <!--fourth row for picture and text-->
+                            <div class="col-md-11" id="blankSpace"></div>
+                            <div class="col-md-1"><p id="skip"></p></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p id="welcome" style="font-size: 3em"></p>
+                            </div>
+                        </div>
+                       
+                </div>
+            </div>
+            
+        </div>
+        <footer>
+            <!-- <div class="row" id="footsies" style="border-top: 5px solid #BF343F">
+                <div class="col-md-12">
+                    <div class="text-center">
+                        If you wish to contact me:<br/>
+                        Email: andrew.vaughns1994@gmail.com<br/>
+                        Phone: (980)253-9263
+                    </div>
+                </div>
+            </div> -->
+            <div class="text-center" id="footsies" style="border-top: 5px solid #BF343F">
+                If you wish to contact me:<br/>
+                Email: andrew.vaughns1994@gmail.com<br/>
+                Phone: (980)253-9263
+            </div>
+        </footer>
+    </body>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/Javascript" src="canvas.js"></script>
+    <script type="text/javascript">
+        var welcomeString = "Welcome to my portfolio! Please click one of the above links to navigate to my completed projects, visit my social media, or contact me directly!";
+        var welcomeStringArray = welcomeString.split("");
+        var welcomeInterval;
+        function skip() {
+            $("#skip").text("");
+            clearInterval(welcomeInterval);
+            $("#welcome").text(welcomeString);
+            $("#skip").off("click", skip);
+        }
+        function setSkip() {
+            $("#skip").text("Skip");
+            $("#skip").on("click", skip);
+        }
+        function welcomeStart() {
+            setSkip();
+            var welcomeArrayIndex = 0;
+            var stop = welcomeStringArray.length;
+            welcomeInterval = setInterval(function() {
+                if(welcomeArrayIndex < stop){
+                    $("#welcome").text($("#welcome").text() + welcomeStringArray[welcomeArrayIndex]);
+                    welcomeArrayIndex++;
+                } else {
+                    clearInterval(welcomeInterval);
+                    $("#skip").text("");
+                    $("#skip").off("click", skip);
+                }
+            }, 100);
+        }
+        welcomeStart();
+    </script>
+
+</html>
